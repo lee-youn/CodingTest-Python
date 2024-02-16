@@ -1,13 +1,21 @@
 #3-2 문제풀이
 
-N,M,K = map(int, input().split())
+N, M, K = map(int, input().split())
 numbers = list(map(int, input().split()))
-numbers.sort(reverse=True) #역정렬
-Max_number=0
 
-#두번째로 큰 수가 반복되는 횟수 계산
-repeat = M%K
-Max_number += (M-repeat)*numbers[0] #첫번째 큰 수 횟수만큼 덧셈
-Max_number += (repeat)*numbers[1] #두번째 큰 수 횟수만큼 덧셈
+# 리스트 정렬
+numbers.sort()
 
-print(Max_number)
+# 최대 연속 가능 수 만큼 큰 수를 더하고,
+# 연속 수 사이 사이로 두번째로 큰 수를 더함
+maximum_number = N-1
+result = 0
+maximum_number_count = M-int(M/K)
+
+for i in range(maximum_number_count):
+    result += numbers[maximum_number]
+
+for i in range(int(M/K)):
+    result += numbers[maximum_number-1]
+
+print(result)
