@@ -19,3 +19,5 @@ for i in range(int(M/K)):
     result += numbers[maximum_number-1]
 
 print(result)
+
+# 횟수만큼 곱셈해서 푸는 게 반복문보다 더 빨라보임
